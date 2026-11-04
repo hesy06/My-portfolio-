@@ -1,111 +1,187 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>흐닌이쉐이 | Portfolio</title>
+<title>흐닌이쉐이 | Software Engineer</title>
 
 <style>
-* {
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0b1020;
+  --card: #151c30;
+  --text: #f3f4ff;
+  --muted: #a7b0c6;
+  --accent: #a78bfa;
 }
 
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f7f6fc;
-    color: #24213d;
-    line-height: 1.7;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans','Noto Sans KR',sans-serif;
+  line-height: 1.8;
 }
 
 nav {
-    background: white;
-    padding: 18px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 8%;
+  background: #0b1020ed;
+  border-bottom: 1px solid #ffffff15;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 21px;
+  color: var(--accent);
 }
 
 nav a {
-    color: #49318d;
-    text-decoration: none;
-    margin-left: 15px;
-    font-weight: bold;
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 22px;
+  font-size: 14px;
 }
 
+nav a:hover { color: white; }
+
 .hero {
-    padding: 90px 8%;
-    background: linear-gradient(120deg, #eee7ff, #cbb9ff);
-    text-align: center;
+  min-height: 75vh;
+  padding: 110px 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 85% 30%, #533a8b55, transparent 50%),
+    var(--bg);
+}
+
+.eyebrow {
+  color: var(--accent);
+  letter-spacing: 3px;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .hero h1 {
-    font-size: 38px;
-    margin-bottom: 10px;
+  font-size: clamp(36px, 6vw, 76px);
+  line-height: 1.2;
+  margin: 20px 0;
+  letter-spacing: -2px;
 }
 
-.hero span {
-    color: #6534c8;
+.gradient {
+  background: linear-gradient(90deg,#c4b5fd,#7dd3fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .hero p {
-    font-size: 18px;
+  color: var(--muted);
+  max-width: 600px;
+  font-size: 17px;
 }
 
-.button {
-    display: inline-block;
-    background: #7145cf;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 25px;
-    text-decoration: none;
-    margin-top: 20px;
+.buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
-.container {
-    max-width: 1050px;
-    margin: 45px auto;
-    padding: 0 20px;
+.btn {
+  padding: 12px 25px;
+  border-radius: 9px;
+  text-decoration: none;
+  font-weight: 700;
+  background: var(--accent);
+  color: #101026;
 }
 
-.card {
-    background: white;
-    padding: 30px;
-    margin-bottom: 25px;
-    border-radius: 18px;
-    box-shadow: 0 5px 20px #29204712;
+.btn.secondary {
+  background: transparent;
+  border: 1px solid #ffffff44;
+  color: white;
+}
+
+main {
+  max-width: 1120px;
+  margin: auto;
+  padding: 20px 24px 100px;
+}
+
+section {
+  padding-top: 85px;
+  scroll-margin-top: 65px;
 }
 
 h2 {
-    color: #6336b8;
+  font-size: 30px;
+  margin-bottom: 24px;
 }
 
-.skills span {
-    display: inline-block;
-    background: #eee7ff;
-    color: #5332a2;
-    padding: 9px 17px;
-    margin: 5px;
-    border-radius: 25px;
+.subtitle {
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid #ffffff12;
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 18px;
+  transition: transform .2s, border-color .2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #a78bfa88;
+}
+
+.card p { color: var(--muted); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 18px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 14px;
+  margin: 5px;
+  border-radius: 7px;
+  background: #a78bfa20;
+  color: #d6c8ff;
+  font-size: 13px;
 }
 
 footer {
-    background: #30234e;
-    color: white;
-    padding: 25px;
-    text-align: center;
+  text-align: center;
+  padding: 35px;
+  border-top: 1px solid #ffffff20;
+  color: var(--muted);
 }
 
-@media (max-width: 600px) {
-    .hero h1 {
-        font-size: 28px;
-    }
-    nav {
-        justify-content: center;
-    }
+@media(max-width:700px) {
+  nav { padding: 15px 5%; flex-wrap: wrap; }
+  nav a { margin: 0 12px 0 0; }
+  .hero { padding: 85px 6%; }
+  .grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -113,76 +189,129 @@ footer {
 <body>
 
 <nav>
-    <strong>💜 My Portfolio</strong>
-    <div>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#activities">Activities</a>
-        <a href="#projects">Projects</a>
-    </div>
+  <div class="logo">HESY.</div>
+  <div>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
 <header class="hero">
-    <h1>안녕하세요!<br>
-    개발자를 꿈꾸는 <span>흐닌이쉐이</span>입니다.</h1>
+  <div class="eyebrow">SOFTWARE ENGINEERING STUDENT</div>
 
-    <p>Chung-Ang University | Software Engineering</p>
-    <p>새로운 기술을 배우고 성장하는 개발자가 되고 싶습니다.</p>
+  <h1>안녕하세요.<br>
+  <span class="gradient">흐닌이쉐이</span>입니다.</h1>
 
-    <a class="button" href="#about">Explore My Portfolio</a>
+  <p>
+    중앙대학교 소프트웨어학부에서 공부하며
+    소프트웨어 개발과 인공지능 기술에 관심을 가지고
+    성장하고 있습니다.
+  </p>
+
+  <div class="buttons">
+    <a href="#projects" class="btn">View Projects</a>
+    <a href="#contact" class="btn secondary">Contact Me</a>
+  </div>
 </header>
 
-<main class="container">
+<main>
 
-<section class="card" id="about">
-    <h2>👩‍💻 About Me</h2>
-    <p><b>이름:</b> 흐닌이쉐이</p>
-    <p><b>학교:</b> 중앙대학교</p>
-    <p><b>전공:</b> 소프트웨어학부</p>
-    <p><b>관심 분야:</b> 인공지능, 소프트웨어 개발</p>
+<section id="about">
+  <div class="subtitle">01 / INTRODUCTION</div>
+  <h2>About Me</h2>
+
+  <div class="card">
+    <h3>배우고, 도전하고, 성장하는 개발자</h3>
     <p>
-    새로운 기술을 배우고 실제 문제를 해결하는
-    개발자가 되는 것이 저의 목표입니다.
+      안녕하세요. 중앙대학교 소프트웨어학부에
+      재학 중인 흐닌이쉐이입니다.
+      프로그래밍과 문제 해결 능력을 기르며
+      실무 역량을 쌓아가고 있습니다.
     </p>
+    <p>Education — 중앙대학교 소프트웨어학부</p>
+    <p>Interests — AI · Software Development</p>
+  </div>
 </section>
 
-<section class="card" id="skills">
-    <h2>💻 Technical Skills</h2>
-    <div class="skills">
-        <span>C++</span>
-        <span>Java</span>
-        <span>Python</span>
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>GitHub</span>
+<section id="skills">
+  <div class="subtitle">02 / TECH STACK</div>
+  <h2>Technical Skills</h2>
+
+  <div class="card">
+    <h3>Programming & Tools</h3>
+    <span class="tag">C++</span>
+    <span class="tag">Java</span>
+    <span class="tag">Python</span>
+    <span class="tag">HTML</span>
+    <span class="tag">CSS</span>
+    <span class="tag">GitHub</span>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="subtitle">03 / SELECTED WORK</div>
+  <h2>Projects</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>01. Schedule Planner</h3>
+      <p>
+        Java GUI를 활용한 일정 관리 프로그램.
+        일정 입력과 관리 기능을 구현했습니다.
+      </p>
+      <span class="tag">Java</span>
+      <span class="tag">GUI</span>
     </div>
+
+    <div class="card">
+      <h3>02. Database Coursework</h3>
+      <p>
+        데이터베이스 수업에서 ER 모델과
+        SQL을 활용한 데이터 설계를 학습했습니다.
+      </p>
+      <span class="tag">SQL</span>
+      <span class="tag">ER Model</span>
+    </div>
+  </div>
 </section>
 
-<section class="card" id="activities">
-    <h2>🎓 Academic Activities</h2>
-    <p>학술회 및 교내 활동 내용을 추가할 예정입니다.</p>
+<section id="experience">
+  <div class="subtitle">04 / EXPERIENCE</div>
+  <h2>Activities & Achievements</h2>
+
+  <div class="card">
+    <h3>Academic Activities</h3>
+    <p>학술회 및 교내 활동 내용을 추가하세요.</p>
+  </div>
+
+  <div class="card">
+    <h3>Awards</h3>
+    <p>수상 이력 또는 주요 성과를 추가하세요.</p>
+  </div>
 </section>
 
-<section class="card" id="awards">
-    <h2>🏆 Awards & Achievements</h2>
-    <p>수상 및 성과 내용을 추가할 예정입니다.</p>
-</section>
+<section id="contact">
+  <div class="subtitle">05 / GET IN TOUCH</div>
+  <h2>Contact</h2>
 
-<section class="card" id="projects">
-    <h2>🚀 My Projects</h2>
-    <h3>Schedule Planner</h3>
-    <p>Java를 활용한 일정 관리 프로그램 개발 프로젝트</p>
-</section>
-
-<section class="card" id="contact">
-    <h2>📩 Contact</h2>
-    <p>GitHub 및 이메일 정보를 추가할 수 있습니다.</p>
+  <div class="card">
+    <h3>Let's Connect.</h3>
+    <p>
+      새로운 기술과 프로젝트에 대해
+      함께 이야기하는 것을 환영합니다.
+    </p>
+    <p>GitHub: YOUR-USERNAME</p>
+    <p>Email: YOUR-EMAIL</p>
+  </div>
 </section>
 
 </main>
 
 <footer>
-    © 2026 흐닌이쉐이 | Software Engineering Portfolio
+  © 2026 흐닌이쉐이. All rights reserved.
 </footer>
 
 </body>
